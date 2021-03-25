@@ -16,10 +16,10 @@ namespace ClassDemoThreads
         public void Start()
         {
 
-            //DemoThreads();
+            DemoThreads();
             //DemoTask();
             //DemoParallel();
-            DemoAsyncAwait();
+            //DemoAsyncAwait();
 
             Console.WriteLine("slut");
         }
@@ -55,6 +55,15 @@ namespace ClassDemoThreads
 
         private void DemoThreads()
         {
+            Thread t1 = new Thread(() => Udskriv("Thread" + 1));
+            Thread t2 = new Thread(() => Udskriv("Thread" + 2));
+            Thread t3 = new Thread(() => Udskriv("Thread" + 3));
+
+            t1.Start(); 
+            t2.Start(); 
+            t3.Start();
+
+            t1.Join();
         }
 
 
